@@ -13,7 +13,7 @@ RUN apt-get update \
   && pip install -r /requirement.txt \
   && pip install tushare \
   && pip install pytdx \
-  && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+  && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
   && apt-get install -y nodejs \
   && apt-get install npm \
   && npm install npm -g \
