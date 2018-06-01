@@ -14,7 +14,6 @@ RUN apt-get update \
   && pip install tushare \
   && pip install pytdx \
   && pip install pyecharts_snapshot \
-  && pip install -e . \
   && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
   && apt-get install -y nodejs \
   && aptitude install npm -yf \
@@ -24,6 +23,8 @@ RUN apt-get update \
   && cd / \
   && git clone https://github.com/barretthugh/QUANTAXIS \
   && chmod -R 777 /QUANTAXIS \
+  && cd /QUANTAXIS \
+  && pip install -e . \
   && cd /QUANTAXIS/QUANTAXIS_Webkit/backend \
   && npm install \
   && cd /QUANTAXIS/QUANTAXIS_Webkit/web \

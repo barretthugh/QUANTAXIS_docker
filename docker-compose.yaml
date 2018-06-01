@@ -1,21 +1,22 @@
 version: '2'
 services:
     qa:
+        build: ./quanta/.
         image: barretthugh/QUANTAXIS_docker
         ports:
             - "8080:8080"
             - "3000:3000"
         restart: always
-        volumes:
-            - qamg:/data
 
     mgdb:
         image: 3.6.5
-        # only for verify, can be disable
+        # only for debug, can be disable
         ports:
             - "27017:27017"
+        environment:
+            - TZ=Asia/Shanghai
         volumes:
-            - qamg:/data/data
+            - qamg:/data/db
         restart: always
 volumes:
     qamg:
