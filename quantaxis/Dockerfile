@@ -20,7 +20,7 @@ RUN apt-get update \
   && npm install forever -g \
   && npm install cnpm -g \
   && git clone https://github.com/barretthugh/QUANTAXIS \
-  && chmod -R 777 ./QUANTAXIS
+  && chmod -R 777 ./QUANTAXIS \
   && cd /QUANTAXIS/QUANTAXIS_Webkit/backend \
   && npm install \
   && cd /QUANTAXIS/QUANTAXIS_Webkit/web \
