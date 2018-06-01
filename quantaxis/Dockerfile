@@ -8,7 +8,7 @@ COPY requirement.txt /requirement.txt
 
 RUN apt-get update \
   && apt install software-properties-common libxml2-dev libxslt-dev \
-  && cd /
+  && cd / \
   && git clone https://github.com/barretthugh/QUANTAXIS \
   && pip install -r /requirement.txt \
   && pip install tushare \
