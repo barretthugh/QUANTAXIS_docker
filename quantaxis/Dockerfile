@@ -1,6 +1,7 @@
 FROM python:3.6.5-jessie
 
 ENV TZ=Asia/Shanghai
+ENV DEBIAN_FRONTEND noninteractive
 
 COPY requirement.txt /requirement.txt
 # COPY pip.conf /root/.pip/pip.conf  mirror in China
