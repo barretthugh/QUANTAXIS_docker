@@ -1,13 +1,13 @@
-FROM python:3.6.5
+FROM python:3.6.5-jessie
 
 ENV TZ=Asia/Shanghai
 
 COPY requirement.txt /requirement.txt
-#COPY pip.conf /root/.pip/pip.conf 				for mirror in China
-#COPY source.list /etc/apt/sources.list			for mirror in China
+# COPY pip.conf /root/.pip/pip.conf  mirror in China
+# COPY source.list /etc/apt/sources.list mirror in China
 
 RUN apt-get update \
-  && apt install software-properties-common libxml2-dev libxslt-dev \
+  && apt install software-properties-common libxml2-dev libxslt-dev -yf \
   && cd / \
   && git clone https://github.com/barretthugh/QUANTAXIS \
   && pip install -r /requirement.txt \
@@ -23,7 +23,11 @@ RUN apt-get update \
   && npm install \
   && cd ~/quantaxis/QUANTAXIS_Webkit/web \
   && npm install \
-  && cd /
+  && cd / \
+  && apt-get clean -y \
+	&& apt-get autoclean -y \
+	&& apt-get autoremove -y \
+	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 8080
 EXPOSE 3000
