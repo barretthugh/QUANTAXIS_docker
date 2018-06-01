@@ -1,4 +1,4 @@
-##deployment:
+## deployment:
 ```
 1. create volume for mongodb
   docker volume create qamg
@@ -14,21 +14,21 @@
   save all
 ```
 
-##stop/remove container:
+## stop/remove container:
 ```
 1. docker-compose stop
 
 2. docker-compose rm
 ```
 
-##update:
+## update:
 ```
 1. rename the 'image' name for qa service in docker-compose
 
 2. docker-compose up -d
 ```
 
-##database backup:
+## database backup:
 ```
 1. docker-compose stop
 
@@ -38,7 +38,7 @@ docker run  --rm -v qamg:/data/db \
 tar zcvf /backup/dbbackup.tar /data/db
 ```
 
-##database restore:
+## database restore:
 ```
 1. docker-compose stop
 
@@ -53,6 +53,7 @@ sh -c "cd /data/db \
 && tar xvf /backup/dbbackup.tar"
 ```
 
-##issues:
+## issues:
 1. after the initialization, the admin/admin user, stock data has saved to mongodb, but the login and register button still not working
 2. the backend will be exit automatically
+3. need to update database uri in the source code
