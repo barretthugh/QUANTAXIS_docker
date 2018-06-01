@@ -5,27 +5,29 @@ ENV DEBIAN_FRONTEND noninteractive
 
 COPY requirement.txt /requirement.txt
 COPY cmd.sh /cmd.sh
-# COPY pip.conf /root/.pip/pip.conf  mirror in China
-# COPY source.list /etc/apt/sources.list mirror in China
+# COPY pip.conf /root/.pip/pip.conf   mirror in China
+# COPY source.list /etc/apt/sources.list  mirror in China
 
 RUN apt-get update \
   && apt install software-properties-common libxml2-dev libxslt-dev dialog apt-utils aptitude -yf \
   && pip install -r /requirement.txt \
   && pip install tushare \
   && pip install pytdx \
+  && pip install pyecharts_snapshot \
+  && pip install -e . \
   && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
   && apt-get install -y nodejs \
   && aptitude install npm -yf \
   && npm install npm -g \
   && npm install forever -g \
   && npm install cnpm -g \
+  && cd / \
   && git clone https://github.com/barretthugh/QUANTAXIS \
-  && chmod -R 777 ./QUANTAXIS \
+  && chmod -R 777 /QUANTAXIS \
   && cd /QUANTAXIS/QUANTAXIS_Webkit/backend \
   && npm install \
   && cd /QUANTAXIS/QUANTAXIS_Webkit/web \
   && npm install \
-  && cd / \
   && apt-get clean -y \
 	&& apt-get autoclean -y \
 	&& apt-get autoremove -y \
