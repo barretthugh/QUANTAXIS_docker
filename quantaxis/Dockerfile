@@ -7,9 +7,7 @@ COPY requirement.txt /requirement.txt
 # COPY source.list /etc/apt/sources.list mirror in China
 
 RUN apt-get update \
-  && apt install software-properties-common libxml2-dev libxslt-dev -yf \
-  && cd / \
-  && git clone https://github.com/barretthugh/QUANTAXIS \
+  && apt install software-properties-common libxml2-dev libxslt-dev dialog apt-utils -yf \
   && pip install -r /requirement.txt \
   && pip install tushare \
   && pip install pytdx \
@@ -19,6 +17,7 @@ RUN apt-get update \
   && npm install npm -g \
   && npm install forever -g \
   && npm install cnpm -g \
+  && git clone https://github.com/barretthugh/QUANTAXIS \
   && cd /quantaxis/QUANTAXIS_Webkit/backend \
   && npm install \
   && cd ~/quantaxis/QUANTAXIS_Webkit/web \
