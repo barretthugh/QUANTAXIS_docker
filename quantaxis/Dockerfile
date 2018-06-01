@@ -22,7 +22,7 @@ RUN apt-get update \
   && git clone https://github.com/barretthugh/QUANTAXIS \
   && cd /quantaxis/QUANTAXIS_Webkit/backend \
   && npm install \
-  && cd ~/quantaxis/QUANTAXIS_Webkit/web \
+  && cd /quantaxis/QUANTAXIS_Webkit/web \
   && npm install \
   && cd / \
   && apt-get clean -y \
