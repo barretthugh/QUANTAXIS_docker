@@ -1,20 +1,22 @@
 version: '2'
 services:
     qa:
-        build: ./quanta/.
-        image: barretthugh/QUANTAXIS_docker
+        build: ./qa/.
+        image: quantaxis:1.0.60
         ports:
-            - "8080:8080"
-            - "3000:3000"
+            - "8010:8010"
+            - "8888:8888"
+        environment:
+          - MONGODB=mgdb
         restart: always
 
     mgdb:
-        image: 3.6.5
-        # only for debug, can be disable
+        image: mongo:4
         ports:
             - "27017:27017"
         environment:
             - TZ=Asia/Shanghai
+            - MONGO_INITDB_DATABASE=quantaxis
         volumes:
             - qamg:/data/db
         restart: always
