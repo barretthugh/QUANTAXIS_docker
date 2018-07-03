@@ -9,6 +9,7 @@ COPY entrypoint.sh /entrypoint.sh
 
 RUN git clone https://github.com/QUANTAXIS/QUANTAXIS \
   && cd QUANTAXIS \
+  && pip install -r requirements.txt \
   && pip install tushare \
   && pip install pytdx \
   && pip install -e . \
