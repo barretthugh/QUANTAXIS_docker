@@ -1,8 +1,7 @@
 version: '2'
 services:
     qa:
-        build: ./qa/.
-        image: quantaxis:1.0.60
+        image: barretthugh/quantaxis_docker
         ports:
             - "8010:8010"
             - "8888:8888"
