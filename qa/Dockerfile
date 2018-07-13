@@ -5,6 +5,7 @@ ENV TZ=Asia/Shanghai
 
 COPY entrypoint.sh /entrypoint.sh
 COPY requirements.txt /requirements.txt
+COPY jupyter_notebook_config.py /root/.jupyter/
 # COPY pip.conf /root/.pip/pip.conf   mirror in China
 # COPY source.list /etc/apt/sources.list  mirror in China
 
