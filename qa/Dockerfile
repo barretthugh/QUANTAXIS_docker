@@ -4,11 +4,13 @@ ENV TZ=Asia/Shanghai
 
 
 COPY entrypoint.sh /entrypoint.sh
+COPY requirements.txt /requirements.txt
 # COPY pip.conf /root/.pip/pip.conf   mirror in China
 # COPY source.list /etc/apt/sources.list  mirror in China
 
 RUN git clone https://github.com/QUANTAXIS/QUANTAXIS \
   && git clone https://github.com/barretthugh/nstools \
+  && pip install -r /requirements.txt \
   && cd QUANTAXIS \
   && pip install -r requirements.txt \
   && pip install tushare \
