@@ -32,3 +32,8 @@ gensim
 scipy
 unidecode
 statsmodels
+jieba
+tqdm
+TA-Lib
+tables
+xlrd
