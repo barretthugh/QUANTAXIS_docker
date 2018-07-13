@@ -8,6 +8,7 @@ COPY entrypoint.sh /entrypoint.sh
 # COPY source.list /etc/apt/sources.list  mirror in China
 
 RUN git clone https://github.com/QUANTAXIS/QUANTAXIS \
+  && git clone https://github.com/barretthugh/nstools \
   && cd QUANTAXIS \
   && pip install -r requirements.txt \
   && pip install tushare \
