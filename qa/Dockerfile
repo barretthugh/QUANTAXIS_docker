@@ -38,7 +38,7 @@ RUN apt-get update \
   && pip install tushare \
   && pip install pytdx \
   && pip install -e . \
-  && chmod +x /entrypoint.sh
+  && chmod +x /entrypoint.sh \
   && pip uninstall prompt-toolkit -y \
   && pip install prompt-toolkit \
   && jupyter nbextension enable --py widgetsnbextension \
