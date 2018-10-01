@@ -24,7 +24,7 @@ RUN apt-get update \
 	&& curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /chrome.deb \
 	&& dpkg -i /chrome.deb || apt-get install -yf \
 	&& rm /chrome.deb \
-	&& curl https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip -o /usr/local/bin/chromedriver.zip \
+	&& curl https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip -o /usr/local/bin/chromedriver.zip \
 	&& apt-get install unzip \
 	&& unzip /usr/local/bin/chromedriver.zip \
 	&& mv /chromedriver /usr/local/bin/ \
@@ -39,6 +39,10 @@ RUN apt-get update \
   && pip install pytdx \
   && pip install -e . \
   && chmod +x /entrypoint.sh
+  && pip uninstall prompt-toolkit -y \
+  && pip install prompt-toolkit \
+  && jupyter nbextension enable --py widgetsnbextension \
+  && jupyter serverextension enable --py jupyterlab
 
 EXPOSE 8010 8888
 
