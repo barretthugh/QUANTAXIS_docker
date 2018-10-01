@@ -120,3 +120,4 @@ tensorflow
 vincent
 matplotlib
 widgetsnbextension
+sqlalchemy
