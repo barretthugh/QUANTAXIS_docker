@@ -1,4 +1,4 @@
-FROM qa-basic
+FROM barretthugh/qa-basic
 
 COPY requirements.txt /requirements.txt
 COPY entrypoint.sh /entrypoint.sh
