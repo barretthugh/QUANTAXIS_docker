@@ -7,13 +7,6 @@ docker image for QUANTAXIS: https://github.com/QUANTAXIS/QUANTAXIS
 
 2. start up compose services
   docker-compose up -d
-
-3. initialization
-  docker exec -it CONTAINERNAME base
-  mkdir FOLDER
-  cd FOLDER
-  quantaxis
-  save all
 ```
 
 ## stop/remove container:
@@ -25,9 +18,11 @@ docker image for QUANTAXIS: https://github.com/QUANTAXIS/QUANTAXIS
 
 ## update:
 ```
-1. rename the 'image' name for qa service in docker-compose
+opt1. docker-compose rm && docker-compose up -d
 
-2. docker-compose up -d
+opt2.
+1. docker exec -it CONTAINERNAME bash
+2. run git pull in the /QUANTAXIS folder
 ```
 
 ## database backup:

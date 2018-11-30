@@ -1,12 +1,18 @@
 version: '2'
 services:
     qa:
-        image: barretthugh/quantaxis_docker
+        image: barretthugh/qa-jupyter
         ports:
             - "8010:8010"
             - "8889:8888"
         environment:
           - MONGODB=mgdb
+        restart: always
+
+    qacron:
+        image: barretthugh/qa-cron
+        environment:
+            - MONGODB=mgdb
         restart: always
 
     mgdb:
@@ -19,6 +25,7 @@ services:
         volumes:
             - qamg:/data/db
         restart: always
+
 volumes:
     qamg:
         external:
